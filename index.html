@@ -50,11 +50,79 @@
             margin-bottom: 40px;
         }
 
-        .content-section {
+        /* Стили для навигационной плашки */
+        .nav-container {
             background-color: #1e1e1e;
-            border-radius: 8px;
+            border-radius: 10px;
             padding: 25px;
             margin-bottom: 30px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+            border: 1px solid #333;
+        }
+
+        .nav-container h3 {
+            color: #bb86fc;
+            margin-top: 0;
+            margin-bottom: 15px;
+            border-left: none;
+            padding-left: 0;
+        }
+
+        .nav-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+        }
+
+        .nav-links a {
+            color: #03dac6;
+            text-decoration: none;
+            font-size: 1.1rem;
+            padding: 10px 20px;
+            border-radius: 30px;
+            background-color: #252525;
+            transition: all 0.3s ease;
+            border: 1px solid #444;
+        }
+
+        .nav-links a:hover {
+            background-color: #333;
+            color: #bb86fc;
+            border-color: #bb86fc;
+            transform: translateY(-2px);
+        }
+
+        /* Стили для кнопки "вернуться к началу" */
+        .back-to-top {
+            text-align: center;
+            margin: 30px 0 20px 0;
+        }
+
+        .back-to-top a {
+            color: #03dac6;
+            text-decoration: none;
+            font-size: 1rem;
+            padding: 10px 25px;
+            border-radius: 30px;
+            background-color: #252525;
+            transition: all 0.3s ease;
+            border: 1px solid #444;
+            display: inline-block;
+        }
+
+        .back-to-top a:hover {
+            background-color: #333;
+            color: #bb86fc;
+            border-color: #bb86fc;
+            transform: translateY(-2px);
+        }
+
+        .content-section {
+            background-color: #1e1e1e;
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 20px;
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
         }
 
@@ -114,7 +182,7 @@
 
         footer {
             border-top: 1px solid #333;
-            margin-top: 50px;
+            margin-top: 30px;
             padding-top: 20px;
             text-align: center;
             color: #666;
@@ -129,6 +197,11 @@
             margin-top: 25px;
         }
 
+        /* Плавная прокрутка для якорей */
+        html {
+            scroll-behavior: smooth;
+        }
+
         @media (max-width: 768px) {
             body {
                 padding: 15px;
@@ -137,37 +210,57 @@
             .algorithm-types, .consequences {
                 grid-template-columns: 1fr;
             }
+
+            .nav-links {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .nav-links a {
+                width: 100%;
+                text-align: center;
+            }
         }
     </style>
 </head>
 <body>
     <header>
-        <h1>Алгоритмы социальных сетей</h1>
-        <div class="subtitle">Как алгоритмы формируют нашу цифровую реальность</div>
+        <section id="start" class="content-section">
+            <h1>Алгоритмы социальных сетей</h1>
+        </section>
     </header>
 
     <main>
-        <section class="content-section">
-        
+        <!-- Навигационная плашка (оглавление) -->
+        <div class="nav-container">
+            <h3>Навигационные подсказки</h3>
+            <div class="nav-links">
+                <a href="#what-is">Что такое алгоритмы социальных сетей?</a>
+                <a href="#info-bubble">Информационный пузырь</a>
+                <a href="#algorithm-types">Типы алгоритмов в социальных сетях</a>
+                <a href="#consequences">Последствия алгоритмического управления контентом
+</a>
+            </div>
+        </div>
+
+        <section id="what-is" class="content-section">
             <h2>Что такое алгоритмы социальных сетей?</h2>
-            <section id="#infoone">
             <p>Алгоритмы социальных сетей — это сложные математические модели и правила, которые определяют, какой контент пользователи видят в своих лентах новостей, в каком порядке и с какой частотой. Эти системы анализируют поведение пользователей, их предпочтения, взаимодействия и множество других факторов для персонализации контента.</p>
-            </section> 
+
             <div class="highlight">
-                <p><strong>Основная цель алгоритмов</strong> — удержать внимание пользователя как можно дольше, показывая наиболее релевантный и engaging (вовлекающий) контент, что напрямую влияет на метрики платформы и её доходы от рекламы.</p>
+                <p><strong>Основная цель алгоритмов</strong> — удержать внимание пользователя как можно дольше, показывая наиболее релевантный и вовлекающий контент, что напрямую влияет на доходы от рекламы.</p>
             </div>
 
             <p>Каждая социальная сеть использует уникальные алгоритмы, которые постоянно обновляются и совершенствуются. Несмотря на различия, все они стремятся к одной цели — максимизировать время, которое пользователи проводят на платформе.</p>
         </section>
 
-        <section class="content-section">
+        <section id="info-bubble" class="content-section">
             <h2>Информационный пузырь</h2>
 
             <div class="info-bubble">
                 <h3>Определение</h3>
                 <p><strong>Информационный пузырь</strong> (также известный как "фильтрующий пузырь") — это состояние интеллектуальной изоляции, которое может возникнуть в результате персонализированного поиска информации, когда алгоритм выборочно определяет, какую информацию пользователь увидит, основываясь на его прошлом поведении, предпочтениях, кликах и истории взаимодействий.</p>
             </div>
-
 
             <h3>Как формируется информационный пузырь?</h3>
             <p>Информационные пузыри формируются в результате взаимодействия нескольких факторов:</p>
@@ -184,16 +277,13 @@
                 </div>
 
                 <div class="consequence-item">
-                     <a href="#infoone">Перейти к разделу «Что такое алгоритмы социальных сетей»</a>
                     <h4>Социальные связи</h4>
                     <p>Контент от друзей и страниц, на которые подписан пользователь, получает приоритет.</p>
                 </div>
             </div>
-
-              
         </section>
 
-        <section class="content-section">
+        <section id="algorithm-types" class="content-section">
             <h2>Типы алгоритмов в социальных сетях</h2>
 
             <div class="algorithm-types">
@@ -201,7 +291,6 @@
                     <h4>Алгоритмы ранжирования</h4>
                     <p>Определяют порядок, в котором контент появляется в ленте пользователя. Учитывают тысячи факторов: от релевантности до времени публикации и популярности контента.</p>
                 </div>
-            
 
                 <div class="algorithm-card">
                     <h4>Алгоритмы рекомендаций</h4>
@@ -215,7 +304,7 @@
             </div>
         </section>
 
-        <section class="content-section">
+        <section id="consequences" class="content-section">
             <h2>Последствия алгоритмического управления контентом</h2>
 
             <h3>Положительные аспекты</h3>
@@ -230,8 +319,8 @@
             <ul>
                 <li>Формирование информационных пузырей и эхо-камер</li>
                 <li>Потенциальное усиление предвзятости и дискриминации</li>
-                <li>Распространение поляризующего и экстремального контента (который часто получает больше вовлечений)</li>
-                <li>Снижение exposure к разнообразным точкам зрения</li>
+                <li>Больше экстремального контента (он набирает больше лайков)</li>
+                <li>Снижение внимания к разным точкам зрения</li>
                 <li>Влияние на психическое здоровье через формирование зависимости</li>
             </ul>
 
@@ -239,19 +328,17 @@
                 <p><strong>Важно:</strong> Большинство современных социальных платформ используют гибридные подходы, комбинируя алгоритмические ленты с хронологическими элементами, чтобы дать пользователям больше контроля над тем, что они видят.</p>
             </div>
         </section>
+
+        <!-- Кнопка "вернуться к началу" (исправленная) -->
+        <div class="back-to-top">
+            <a href="#start">⬆ вернуться к началу</a>
+        </div>
     </main>
+
     <footer>
-    <div style="text-align: right; opacity: 0.5; font-size: 0.8rem; padding: 10px 0;">
-        Автор сайта: Амелин Никита
-    </div>
-</footer>
+        <div style="text-align: right; opacity: 0.5; font-size: 0.8rem; padding: 10px 0;">
+            Автор сайта: Амелин Никита
+        </div>
+    </footer>
 </body>
 </html>
-
-
-
-
-
-
-
-
